@@ -338,7 +338,7 @@ const Experience = () => {
             >
               <div className="absolute -left-[41px] w-5 h-5 rounded-full border-4 border-[#0B1A28] z-10 transition-all duration-300 bg-slate-600 group-hover:bg-teal-400 group-hover:scale-125 group-hover:shadow-[0_0_15px_rgba(45,212,191,0.5)]" />
 
-              <div className={`p-8 rounded-3xl transition-all duration-500 border glass-card ${exp.current ? 'border-teal-500/40 bg-white/10 shadow-[0_0_30px_-5px_rgba(20,184,166,0.2)]' : 'border-white/10 group-hover:border-teal-400/50 hover:bg-white/10 group-hover:-translate-y-2 group-hover:shadow-[0_0_40px_-10px_rgba(20,184,166,0.4)]'}`}>
+              <div className={`p-8 rounded-3xl transition-all duration-500 border glass-card cursor-pointer hover:glass-card-hover ${exp.current ? 'border-teal-500/40 bg-white/10 shadow-[0_0_30px_-5px_rgba(20,184,166,0.2)]' : 'border-white/10'}`}>
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-4">
                   <h3 className="text-2xl font-bold text-white">{exp.title}</h3>
                   <span className={`inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-xl whitespace-nowrap w-fit ${exp.current ? 'bg-teal-500/10 text-teal-300 border border-teal-500/20' : 'bg-white/5 text-slate-300 border border-white/5'}`}>
