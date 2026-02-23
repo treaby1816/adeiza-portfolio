@@ -55,11 +55,11 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0B1A28]/90 backdrop-blur-xl shadow-lg border-b border-white/5 py-4' : 'bg-transparent py-6'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'glass-nav py-4' : 'bg-transparent py-6'
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        <a href="#home" className="text-2xl font-black tracking-tighter text-white flex items-center gap-2 group">
+        <a href="#home" className={`text-2xl font-black tracking-tighter ${scrolled ? 'text-white' : 'text-blue-950'} flex items-center gap-2 group transition-colors`}>
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-blue-500 flex items-center justify-center text-white shadow-[0_0_20px_-5px_rgba(13,148,136,0.5)] group-hover:shadow-[0_0_25px_-5px_rgba(13,148,136,0.7)] transition-shadow">
             <span className="font-black text-xl">A</span>
           </div>
@@ -72,14 +72,14 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-semibold tracking-wide text-slate-300 hover:text-white transition-colors"
+              className={`text-sm font-semibold tracking-wide transition-colors ${scrolled ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-teal-700'}`}
             >
               {link.name}
             </a>
           ))}
           <a
             href="#contact"
-            className="px-6 py-2.5 rounded-xl bg-white/10 text-white text-sm font-semibold backdrop-blur-sm border border-white/10 hover:bg-white/20 hover:scale-[1.02] transition-all duration-300"
+            className={`px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-[1.02] ${scrolled ? 'bg-white/10 text-white backdrop-blur-sm border border-white/10 hover:bg-white/20' : 'bg-teal-600 text-white shadow-md shadow-teal-600/20 hover:bg-teal-700'}`}
           >
             Let's Talk
           </a>
@@ -87,7 +87,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-slate-600 p-2"
+          className={`md:hidden p-2 transition-colors ${scrolled ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-blue-950'}`}
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -125,8 +125,10 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section id="home" className="pt-32 pb-20 md:pt-48 md:pb-32 px-6 md:px-12 max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20 relative">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-teal-50 rounded-full blur-[100px] -z-10 pointer-events-none" />
+    <section id="home" className="pt-32 pb-20 md:pt-48 md:pb-32 px-6 md:px-12 max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20 relative overflow-hidden">
+      {/* Premium subtle background overall */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(13,148,136,0.06),transparent_50%)] -z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(30,58,138,0.04),transparent_50%)] -z-10 pointer-events-none" />
 
       <motion.div
         className="flex-1 flex flex-col gap-6"
@@ -134,7 +136,7 @@ const Hero = () => {
         animate="visible"
         variants={staggerContainer}
       >
-        <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-sm font-semibold tracking-wide w-max">
+        <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-sm font-semibold tracking-wide w-max shadow-sm">
           <Award size={16} />
           <span>Pharmaceutical Executive</span>
         </motion.div>
@@ -169,9 +171,9 @@ const Hero = () => {
           </a>
           <a
             href="mailto:adeonimi@gmail.com"
-            className="px-6 py-3 rounded-xl bg-white text-slate-700 font-bold hover:bg-slate-50 border border-slate-200 transition-all flex items-center gap-2 hover:scale-[1.02] shadow-sm"
+            className="px-6 py-3 rounded-xl bg-white text-blue-950 font-bold hover:bg-teal-50 border-2 border-slate-200 transition-all flex items-center gap-2 hover:scale-[1.02] shadow-sm hover:border-teal-200 hover:text-teal-700 group"
           >
-            <Mail size={18} className="text-teal-600" />
+            <Mail size={18} className="text-teal-600 group-hover:scale-110 transition-transform" />
             Email Me
           </a>
         </motion.div>
@@ -336,7 +338,7 @@ const Experience = () => {
             >
               <div className="absolute -left-[41px] w-5 h-5 rounded-full border-4 border-[#0B1A28] z-10 transition-all duration-300 bg-slate-600 group-hover:bg-teal-400 group-hover:scale-125 group-hover:shadow-[0_0_15px_rgba(45,212,191,0.5)]" />
 
-              <div className={`p-8 rounded-3xl bg-white/5 backdrop-blur-md transition-all duration-300 border ${exp.current ? 'border-teal-500/30' : 'border-white/5 group-hover:border-teal-500/50 hover:bg-white/10 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_-5px_rgba(20,184,166,0.2)]'}`}>
+              <div className={`p-8 rounded-3xl transition-all duration-500 border glass-card ${exp.current ? 'border-teal-500/40 bg-white/10 shadow-[0_0_30px_-5px_rgba(20,184,166,0.2)]' : 'border-white/10 group-hover:border-teal-400/50 hover:bg-white/10 group-hover:-translate-y-2 group-hover:shadow-[0_0_40px_-10px_rgba(20,184,166,0.4)]'}`}>
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-4">
                   <h3 className="text-2xl font-bold text-white">{exp.title}</h3>
                   <span className={`inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-xl whitespace-nowrap w-fit ${exp.current ? 'bg-teal-500/10 text-teal-300 border border-teal-500/20' : 'bg-white/5 text-slate-300 border border-white/5'}`}>
@@ -426,7 +428,7 @@ const Education = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {educations.map((edu, idx) => (
-                  <div key={idx} className={`bg-white/5 backdrop-blur-sm p-6 rounded-3xl border border-white/5 hover:border-teal-500/50 hover:bg-white/10 transition-all duration-300 group hover:-translate-y-2 hover:shadow-[0_0_20px_-5px_rgba(20,184,166,0.2)] ${idx === 2 ? 'md:col-span-2' : ''}`}>
+                  <div key={idx} className={`glass-card p-6 rounded-3xl hover:glass-card-hover cursor-pointer group ${idx === 2 ? 'md:col-span-2' : ''}`}>
                     <h4 className="font-bold text-white text-xl mb-2 leading-tight group-hover:text-teal-300 transition-colors">{edu.degree}</h4>
                     <p className="text-slate-300 font-medium mb-4">{edu.school}</p>
                     <span className="inline-flex items-center gap-1.5 bg-[#0B1A28]/50 border border-white/10 text-slate-300 text-xs font-semibold tracking-wider px-3 py-1.5 rounded-lg">
@@ -444,7 +446,7 @@ const Education = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="lg:col-span-4 bg-teal-900/20 backdrop-blur-md rounded-[2.5rem] p-8 md:p-10 border border-teal-500/20 relative overflow-hidden group hover:border-teal-400/50 hover:-translate-y-2 hover:shadow-[0_0_30px_-5px_rgba(20,184,166,0.3)] transition-all duration-300"
+            className="lg:col-span-4 bg-teal-900/20 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-10 border border-teal-500/20 relative overflow-hidden group hover:glass-card-hover transition-all duration-500 cursor-pointer"
           >
             <div className="relative z-10 h-full flex flex-col">
               <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
@@ -491,7 +493,7 @@ const Education = () => {
                 const org = parts.length > 1 ? parts[1] : affiliation;
 
                 return (
-                  <div key={idx} className="inline-flex flex-col bg-[#0B1A28] border border-white/10 px-5 py-4 rounded-2xl hover:border-teal-400/50 hover:bg-[#0F2236] transition-all duration-300 group lg:min-w-[280px] hover:-translate-y-1 hover:shadow-lg">
+                  <div key={idx} className="inline-flex flex-col glass-card px-6 py-5 rounded-2xl hover:glass-card-hover group lg:min-w-[280px] cursor-pointer">
                     {role && <span className="text-teal-400 font-bold text-xs uppercase tracking-widest mb-2">{role}</span>}
                     <span className="text-slate-300 font-semibold group-hover:text-white text-base leading-snug">{org}</span>
                   </div>
