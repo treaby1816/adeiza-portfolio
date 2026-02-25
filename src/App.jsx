@@ -588,7 +588,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-sm text-slate-500 gap-4 font-medium">
         <p>© {new Date().getFullYear()} Pharm. Onimisi Joseph Adeiza. All rights reserved.</p>
         <div className="flex items-center gap-8">
-          <a href="https://www.linkedin.com/in/onimisi-adeiza" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/onimisi-adeiza-7132b9125" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
           <a href="https://x.com/sonad360" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Twitter</a>
         </div>
       </div>
