@@ -148,7 +148,7 @@ const Hero = () => {
         </motion.h1>
 
         <motion.p variants={fadeUp} className="text-xl md:text-2xl font-medium text-slate-600">
-          <strong className="font-extrabold text-blue-950">National Sales Manager</strong> • <span className="text-teal-700">Public Health Expert</span> • MBA
+          <strong className="font-extrabold text-blue-950">Portfolio Sales Manager</strong> • <span className="text-teal-700">Public Health Expert</span> • MBA
         </motion.p>
 
         <motion.div variants={fadeUp} className="text-slate-600 max-w-lg leading-relaxed text-lg font-medium min-h-[60px]">
@@ -276,14 +276,20 @@ const About = () => {
 const Experience = () => {
   const experiences = [
     {
-      title: "Sales Manager (National)",
+      title: "Portfolio Sales Manager (National)",
       company: "Embassy Pharmaceutical and Chemical Limited",
-      period: "2022 - Present",
+      period: "2026 - Present",
       current: true
     },
     {
-      title: "Area Sales Manager",
-      company: "Embassy Pharmaceutical",
+      title: "Regional Sales Manager (North)",
+      company: "Embassy Pharmaceutical and Chemical Limited",
+      period: "2023 - 2025",
+      current: false
+    },
+    {
+      title: "Area Sales Manager (North Central)",
+      company: "Embassy Pharmaceutical and Chemical Limited",
       period: "2019 - 2022",
       current: false
     },
@@ -363,6 +369,13 @@ const Experience = () => {
 const Education = () => {
   const educations = [
     {
+      degree: "Honorary Doctorate",
+      school: "Yahweh Hills University, South Africa",
+      period: "Dec 2024",
+      subtitle: "On Leadership and Health Management",
+      icon: <Award size={24} className="text-amber-500" />
+    },
+    {
       degree: "Master in Public Health (MPH)",
       school: "Ahmadu Bello University, Zaria",
       period: "2023 - 2024",
@@ -431,6 +444,7 @@ const Education = () => {
                 {educations.map((edu, idx) => (
                   <div key={idx} className={`glass-card p-6 rounded-3xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_-5px_rgba(20,184,166,0.2)] hover:border-teal-500/50 hover:bg-white/10 cursor-pointer group ${idx === 2 ? 'md:col-span-2' : ''}`}>
                     <h4 className="font-bold text-white text-xl mb-2 leading-tight group-hover:text-teal-300 transition-colors">{edu.degree}</h4>
+                    {edu.subtitle && <p className="text-teal-400 text-sm font-medium mb-2 italic">{edu.subtitle}</p>}
                     <p className="text-slate-300 font-medium mb-4">{edu.school}</p>
                     <span className="inline-flex items-center gap-1.5 bg-[#0B1A28]/50 border border-white/10 text-slate-300 text-xs font-semibold tracking-wider px-3 py-1.5 rounded-lg">
                       {edu.period}
@@ -574,8 +588,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-sm text-slate-500 gap-4 font-medium">
         <p>© {new Date().getFullYear()} Pharm. Onimisi Joseph Adeiza. All rights reserved.</p>
         <div className="flex items-center gap-8">
-          <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-          <a href="#" className="hover:text-white transition-colors">Twitter</a>
+          <a href="https://www.linkedin.com/in/onimisi-adeiza" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+          <a href="https://x.com/sonad360" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Twitter</a>
         </div>
       </div>
     </footer>
